@@ -1,0 +1,30 @@
+body{
+  background-color: beige;
+}
+.main-img{
+  position: relative;
+}
+.buttons{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+.left, .right{
+  cursor: pointer;
+}
+
+.img-wrapper{
+  height: 100%;
+  width: 100%;
+}
+.img-wrapper img{
+  object-fit: contain;
+  object-position: center;
+  height: 100%;
+  /* width: 100%; */
+}
+
+.activeThumb{
+  border: 5px solid rgba(92, 110, 190, 0.507);
+}

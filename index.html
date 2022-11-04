@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css' integrity='sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==' crossorigin='anonymous'/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container vh-100 ">
+
+    <div id="app" class="w-100 h-100 bg-dark" >
+      <!-- Locandina principale -->
+      <div class="row w-100 h-75">
+        <div 
+        @mouseenter="stopAutoPlay"
+        @mouseleave="autoplay"
+        class="col h-100 w-100 d-flex justify-content-center align-items-center main-img"
+        
+        >
+          <div class="buttons">
+            <div @click="nextPrev(false)" class="left bg-secondary rounded-3 fs-3">
+              &lArr;
+            </div>
+            <div @click="nextPrev(true)" class="right bg-secondary rounded-3 fs-3">
+              &rArr;
+            </div>
+          </div>
+          <div class="img-wrapper d-flex align-items-center justify-content-center">
+
+            <img :src="movies.images[activateImg]" alt="">
+
+          </div>
+        </div>
+
+      </div>
+      <!-- Thumbnails -->
+      <div class="row w-100 h-25">
+        <div class="col h-100 w-100 d-flex justify-content-center align-items-center">
+          <div class="img-wrapper d-flex align-items-center justify-content-center">
+
+            <img 
+            
+            v-for="image in movies.images" :src="image" alt="" :class="{'activeThumb': movies.images[activateImg] == image}"
+            >
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
